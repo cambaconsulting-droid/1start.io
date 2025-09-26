@@ -1,0 +1,17 @@
+# Nombra todo el proyecto (el "edificio")
+name: verinstate-ecosystem
+
+services:
+  # Define el servicio que correrá Hardhat (el "departamento")
+  hardhat:
+    # Nombra específicamente este contenedor (la "oficina")
+    container_name: verinstate-hardhat-container
+    build:
+      # ¡CORRECCIÓN! Le decimos que el "contexto" para construir está en esta subcarpeta
+      context: ./packages/smart-contracts
+      dockerfile: Dockerfile
+    volumes:
+      # Sincroniza la carpeta correcta con el directorio de trabajo del contenedor
+      - ./packages/smart-contracts:/usr/src/app
+    # Mantiene el contenedor corriendo para que podamos interactuar con él
+    command: tail -f /dev/null

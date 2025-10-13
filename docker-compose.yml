@@ -1,17 +1,32 @@
-# Nombra todo el proyecto (el "edificio")
-name: verinstate-ecosystem
-
 services:
-  # Define el servicio que correrá Hardhat (el "departamento")
-  hardhat:
-    # Nombra específicamente este contenedor (la "oficina")
-    container_name: verinstate-hardhat-container
-    build:
-      # ¡CORRECCIÓN! Le decimos que el "contexto" para construir está en esta subcarpeta
-      context: ./packages/smart-contracts
-      dockerfile: Dockerfile
+  # Base de Datos PostgreSQL para todos los servicios
+  db:
+    image: postgres:14-alpine
+    container_name: 1start-postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=1start_dev
+    ports:
+      - '5432:5432'
     volumes:
-      # Sincroniza la carpeta correcta con el directorio de trabajo del contenedor
-      - ./packages/smart-contracts:/usr/src/app
-    # Mantiene el contenedor corriendo para que podamos interactuar con él
-    command: tail -f /dev/null
+      - postgres_data:/var/lib/postgresql/data
+
+  # La aplicación web principal
+  platform-app:
+    container_name: 1start-platform-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/1start_dev
+      - NEXTAUTH_URL=http://localhost:3000
+
+volumes:
+  postgres_data:

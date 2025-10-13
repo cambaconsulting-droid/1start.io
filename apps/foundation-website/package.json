@@ -3,10 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+   "dev": "pnpm --filter platform-app dev",
+  "contracts:test": "pnpm --filter contracts test"
   },
   "dependencies": {
     "react": "18.2.0",

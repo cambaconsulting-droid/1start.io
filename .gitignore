@@ -1,1 +1,35 @@
-node_modules
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
+/node_modules
+/.pnpm-store
+
+# Build artifacts
+.next/
+out/
+build/
+
+# Hardhat artifacts
+/contracts/artifacts
+/contracts/cache
+/contracts/typechain-types
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env*.local
+
+# IDE settings
+.vscode/
+.idea/

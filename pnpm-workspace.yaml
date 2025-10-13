@@ -1,3 +1,6 @@
 packages:
   - 'apps/*'
+  - 'services/*'
   - 'packages/*'
+  - 'contracts'
+  - 'oracles/*'

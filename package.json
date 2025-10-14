@@ -15,5 +15,8 @@
       "eslint": "^8.57.0",
       "@types/minimatch": "5.1.2"
     }
+  },
+  "devDependencies": {
+    "prisma": "^6.17.1"
   }
 }

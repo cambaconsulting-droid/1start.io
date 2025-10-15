@@ -9,6 +9,7 @@ function ConnectWalletButtonComponent() {
   const { connect } = useConnect();
   const { disconnect } = useDisconnect();
 
+
   if (isConnected) {
     return (
       <div>
@@ -33,4 +34,5 @@ function ConnectWalletButtonComponent() {
   );
 }
 
+// Forcing a new commit
 export const ConnectWalletButton = memo(ConnectWalletButtonComponent);

@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    // --- Opciones Base del Compilador ---
+    "target": "es2020",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "incremental": true,
+
+    // --- Configuración para Monorepo ---
+    "baseUrl": ".",
+    "paths": {
+      "@1start/db": ["packages/db"],
+      "@1start/db/*": ["packages/db/*"],
+      "api-client-sdk": ["packages/api-client-sdk"],
+      "api-client-sdk/*": ["packages/api-client-sdk/*"],
+      "public-sdk-js": ["packages/public-sdk-js"],
+      "public-sdk-js/*": ["packages/public-sdk-js/*"]
+    }
+  }
+}

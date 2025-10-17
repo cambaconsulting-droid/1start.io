@@ -137,9 +137,6 @@ importers:
         specifier: ^2.9.2
         version: 2.18.1(@tanstack/query-core@5.90.5)(@tanstack/react-query@5.90.5(react@18.2.0))(@types/react@18.2.0)(bufferutil@4.0.9)(immer@10.0.2)(react@18.2.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(viem@2.38.3(bufferutil@4.0.9)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.1.12))(zod@4.1.12)
     devDependencies:
-      '@types/bcryptjs':
-        specifier: ^3.0.0
-        version: 3.0.0
       '@types/node':
         specifier: ^20
         version: 20.19.22
@@ -211,10 +208,10 @@ importers:
         specifier: ^2.4.6
         version: 2.4.6
       '@types/express':
-        specifier: ^4.17.21
+        specifier: ^4.17.23
         version: 4.17.23
       '@types/jsonwebtoken':
-        specifier: ^9.0.6
+        specifier: ^9.0.10
         version: 9.0.10
       ts-node-dev:
         specifier: ^2.0.0

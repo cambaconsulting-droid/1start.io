@@ -1,9 +1,12 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    // Sobrescribimos solo lo estrictamente necesario para un backend de Node
     "module": "CommonJS",
-    "outDir": "dist"
+    "outDir": "dist",
+    // ¡CAMBIO CLAVE!
+    "paths": {
+      "@1start/db": ["../../packages/db"]
+    }
   },
   "include": ["src"]
 }

@@ -1,9 +1,9 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    // Sobrescribimos solo lo estrictamente necesario para un backend de Node
     "module": "CommonJS",
     "outDir": "dist"
   },
-  "include": ["src"]
+  "include": ["src"],
+  "references": [{ "path": "../../packages/db" }]
 }

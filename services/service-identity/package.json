@@ -8,15 +8,12 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@1start/db": "workspace:^",
+    "@1start/db": "workspace:*",
     "bcryptjs": "^2.4.3",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.6",
-    "@types/express": "^4.17.23",
-    "@types/jsonwebtoken": "^9.0.10",
     "ts-node-dev": "^2.0.0"
   }
 }

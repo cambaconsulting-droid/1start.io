@@ -9,7 +9,7 @@ const ClientWeb3Provider = dynamic(
 );
 
 export const metadata: Metadata = {
-  title: "1Start Platform",
+  title: "1Start Ecosystem",
   description: "The Operating System for Programmable Trust",
 };
 

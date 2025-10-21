@@ -13,6 +13,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "incremental": true
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@1start/ui-kit": ["packages/ui-kit/src"],
+      "@1start/core-types": ["packages/core-types/src"],
+      "@1start/sdk-js": ["packages/sdk-js/src"],
+      "@1start/db": ["packages/db/src"]
+    }
   }
 }

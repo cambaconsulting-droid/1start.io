@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    // --- Opciones Base del Compilador ---
     "target": "es2020",
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
@@ -16,7 +15,6 @@
     "noEmit": true,
     "incremental": true,
 
-    // --- Configuración para Monorepo ---
     "baseUrl": ".",
     "paths": {
       "@1start/db": ["packages/db"],

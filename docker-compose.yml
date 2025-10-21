@@ -13,9 +13,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  # La aplicación web principal
-  platform-app:
-    container_name: 1start-platform-app
+  # La aplicación web principal - AHORA CORREGIDO
+  platform:
+    container_name: 1start-platform
     build:
       context: .
       dockerfile: Dockerfile

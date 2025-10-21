@@ -3,14 +3,30 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        "dist/**"
+      ]
     },
-    "lint": {
-      "dependsOn": ["^build"]
-    },
+    "lint": {},
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "test": {
+      "dependsOn": [],
+      "outputs": ["coverage/**"]
+    },
+    "clean": {
+      "cache": false
+    },
+    "contracts#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["artifacts/**", "cache/**", "typechain-types/**"]
+    },
+    "contracts#test": {
+      "dependsOn": ["contracts#build"]
     }
   }
 }

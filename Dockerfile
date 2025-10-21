@@ -1,23 +1,27 @@
-# Usa una imagen base con Node.js v22 y Alpine Linux
-FROM node:22-alpine
-
-# Instala pnpm globalmente
-RUN npm install -g pnpm
+# Usa una imagen base oficial de Node.js v20 (LTS)
+FROM node:20-alpine
 
 # Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia TODO el proyecto al contenedor
+# Copia los archivos de definición de paquetes de todo el monorepo
+COPY package.json package-lock.json ./
+
+# Copia los package.json de los workspaces para optimizar la caché de Docker
+COPY apps/platform/package.json ./apps/platform/
+COPY apps/landing-page/package.json ./apps/landing-page/
+COPY apps/developer-portal/package.json ./apps/developer-portal/
+COPY backend/services/service-identity/package.json ./backend/services/service-identity/
+# ... (añade una línea por cada app/servicio/paquete) ...
+
+# Instala TODAS las dependencias de los workspaces
+RUN npm install
+
+# Copia el resto del código fuente del monorepo
 COPY . .
 
-# Le decimos a pnpm que estamos en un entorno no interactivo
-ENV CI=true
-
-# Instala TODAS las dependencias. Esta vez, permitimos que se descarguen de internet.
-RUN pnpm install
-
-# Construye la aplicación 'platform-app'
-RUN pnpm --filter platform-app build
+# Construye únicamente la aplicación que quieres servir (ej. 'platform')
+RUN npm run build --filter=platform
 
 # Establece el entorno a producción
 ENV NODE_ENV=production
@@ -25,5 +29,5 @@ ENV NODE_ENV=production
 # Expone el puerto
 EXPOSE 3000
 
-# Comando de inicio explícito para evitar errores de filtro
-CMD ["sh", "-c", "cd apps/platform-app && pnpm start"]
+# Comando para iniciar la aplicación (navega a la carpeta de la app)
+CMD ["sh", "-c", "cd apps/platform && npm start"]

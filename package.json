@@ -1,19 +1,20 @@
 {
   "name": "1start-protocol-monorepo",
   "private": true,
-  "packageManager": "pnpm@10.18.2",
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "vercel-build": "pnpm install && turbo run build --filter=platform-app"
+    "test": "turbo test"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.6",
-    "@types/express": "^4.17.21",
-    "@types/jsonwebtoken": "^9.0.6",
-    "@types/node": "^20.12.12",
-    "prisma": "^5.14.0",
-    "turbo": "^2.0.4"
-  }
+    "turbo": "^2.5.8",
+    "typescript": "^5.9.3"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "backend/services/*",
+    "contracts"
+  ]
 }
